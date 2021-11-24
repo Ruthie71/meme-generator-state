@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import MemeSelector from "./components/MemeSelector";
+import MemeCanvas from "./components/MemeCanvas";
+import MemeInput from "./components/MemeInput";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [selectedTemplate, setSelectedTemplate] = useState({});
+    const [inputs, setInputs] = useState([]);
+
+    return (
+        <div className="container mt-5">
+            <div className="row">
+                <MemeSelector
+                    setSelectedTemplate={setSelectedTemplate}
+                    setInputs={setInputs}
+                />
+                <MemeCanvas selectedTemplate={selectedTemplate} />
+                <MemeInput inputs={inputs} setInputs={setInputs} />
+            </div>
+        </div>
+    );
+};
 
 export default App;
