@@ -16,7 +16,7 @@ const MemeInput = ({ inputs, setInputs }) => {
 
     return (
         <div className="col-md-3">
-            <form>
+            <form onSubmit={handleSubmit}>
                 {inputs.map((input, i) => (
                     <div className="form-group" key={i}>
                         <input
