@@ -15,7 +15,11 @@ const App = () => {
                     setInputs={setInputs}
                 />
                 <MemeCanvas selectedTemplate={selectedTemplate} />
-                <MemeInput inputs={inputs} setInputs={setInputs} />
+                <MemeInput
+                    inputs={inputs}
+                    setInputs={setInputs}
+                    selectedTemplate={selectedTemplate}
+                />
             </div>
         </div>
     );
