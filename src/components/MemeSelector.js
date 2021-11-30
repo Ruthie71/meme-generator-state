@@ -6,7 +6,9 @@ const MemeSelector = ({ setSelectedTemplate, setInputs }) => {
 
     const getMemeTemplates = useCallback(async () => {
         try {
-            const res = await fetch("https://api.imgflip.com/get_memes");
+            const res = await fetch(
+                `${process.env.REACT_APP_IMG_FLIP_API}/get_memes`
+            );
             const data = await res.json();
             setTemplates(data.data.memes);
         } catch (error) {
