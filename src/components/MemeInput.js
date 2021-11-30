@@ -1,4 +1,10 @@
-const MemeInput = ({ inputs, setInputs, selectedTemplate }) => {
+const MemeInput = ({
+    inputs,
+    setInputs,
+    selectedTemplate,
+    setSelectedTemplate,
+    shareMeme,
+}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const params = new URLSearchParams({
@@ -16,8 +22,11 @@ const MemeInput = ({ inputs, setInputs, selectedTemplate }) => {
                 `${process.env.REACT_APP_IMG_FLIP_API}/caption_image?${params}`,
                 options
             );
-            const data = await res.json();
-            console.log(data);
+            const {
+                data: { url },
+            } = await res.json();
+            setSelectedTemplate((prev) => ({ ...prev, url }));
+            setInputs(Array(inputs.length).fill(""));
         } catch (error) {
             console.log(error);
         }
@@ -39,6 +48,11 @@ const MemeInput = ({ inputs, setInputs, selectedTemplate }) => {
                 ))}
                 <input type="submit" className="btn btn-primary"></input>
             </form>
+            <div className="mt-3">
+                <button className="btn btn-warning" onClick={shareMeme}>
+                    Save
+                </button>
+            </div>
         </div>
     );
 };
