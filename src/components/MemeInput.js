@@ -35,18 +35,23 @@ const MemeInput = ({
         setInputs(inputs.map((input, i) => (index === i ? value : input)));
 
     return (
-        <div className="col-md-3">
+        <div className="col-md-3" stxle={{ marginTop: "10px" }}>
             <form onSubmit={handleSubmit}>
                 {inputs.map((input, i) => (
                     <div className="form-group" key={i}>
                         <input
+                            style={{ marginTop: "10px" }}
                             type="text"
                             value={input}
                             onChange={(e) => handleChange(e, i)}
                         />
                     </div>
                 ))}
-                <input type="submit" className="btn btn-primary"></input>
+                <input
+                    style={{ marginTop: "10px" }}
+                    type="submit"
+                    className="btn btn-primary"
+                ></input>
             </form>
             <div className="mt-3">
                 <button className="btn btn-warning" onClick={shareMeme}>

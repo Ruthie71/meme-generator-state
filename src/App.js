@@ -16,7 +16,10 @@ const App = () => {
 
     console.log(memeToShare.current);
     return (
-        <div className="container mt-5">
+        <div
+            style={{ backgroundColor: "hotpink", marginTop: "10px" }}
+            className="container mt-5"
+        >
             <div className="row">
                 <MemeSelector
                     setSelectedTemplate={setSelectedTemplate}
