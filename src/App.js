@@ -20,7 +20,7 @@ const App = () => {
             style={{ backgroundColor: "hotpink", marginTop: "10px" }}
             className="container mt-5"
         >
-            <div className="row">
+            <div className="row" xs={2} md={4} lg={6}>
                 <MemeSelector
                     setSelectedTemplate={setSelectedTemplate}
                     setInputs={setInputs}
